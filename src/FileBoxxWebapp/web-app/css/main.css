@@ -1,0 +1,32 @@
+html * {
+    margin: 0;
+}
+
+body {
+    background: #fff;
+    color: #333;
+    font: 11px verdana, arial, helvetica, sans-serif;
+}
+
+.fb-list-item {
+    padding: 5px;
+}
+
+.fb-list-item.even {
+    background-color: #FFFFFF;
+}
+
+.fb-list-item.odd {
+    background-color: #FAFAFA;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #EDEDED;
+}
+
+.fb-list-item.hover {
+    background-color: #EFEFEF;
+}
+
+#files-view .name {
+    font-weight: bold;
+}
