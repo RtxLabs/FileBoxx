@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FileBoxxWebapp.iml" filepath="$PROJECT_DIR$/FileBoxxWebapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FileBoxxWebapp-grailsPlugins.iml" filepath="$PROJECT_DIR$/FileBoxxWebapp-grailsPlugins.iml" />
+    </modules>
+  </component>
+</project>
+
