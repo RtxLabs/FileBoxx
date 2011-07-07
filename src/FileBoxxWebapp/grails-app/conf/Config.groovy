@@ -5,15 +5,15 @@ import grails.plugins.springsecurity.SecurityConfigType
 
 // grails.config.locations = [ "classpath:${appName}-config.properties",
 //                             "classpath:${appName}-config.groovy",
-//                             "file:${userHome}/.grails/${appName}-config.properties",
-//                             "file:${userHome}/.grails/${appName}-config.groovy"]
+//                             "document:${userHome}/.grails/${appName}-config.properties",
+//                             "document:${userHome}/.grails/${appName}-config.groovy"]
 
 // if(System.properties["${appName}.config.location"]) {
-//    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
+//    grails.config.locations << "document:" + System.properties["${appName}.config.location"]
 // }
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
-grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
+grails.mime.file.extensions = true // enables the parsing of document extensions from URLs into the request format
 grails.mime.use.accept.header = false
 grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
                       xml: ['text/xml', 'application/xml'],
@@ -59,6 +59,7 @@ environments {
         grails.serverURL = "http://www.changeme.com"
     }
     development {
+        fileBoxx.fileUploadDir = "target/files";
         grails.serverURL = "http://localhost:8080/${appName}"
     }
     test {

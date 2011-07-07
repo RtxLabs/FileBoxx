@@ -1,10 +1,30 @@
-import de.rotex.fileboxx.*
+import de.rotex.fileboxx.Document
+import de.rotex.fileboxx.Tag
+import de.rotex.fileboxx.TagList
+import de.rotex.fileboxx.User
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import grails.converters.JSON
 
 class BootStrap {
 
     def springSecurityService
 
     def init = { servletContext ->
+
+        def config = ConfigurationHolder.config
+
+        def fileUploadDir = new File(config.fileBoxx.fileUploadDir)
+        if (!fileUploadDir.exists()) {
+            fileUploadDir.mkdir();
+        }
+
+        if (!fileUploadDir.canWrite() || !fileUploadDir.canRead()) {
+            throw new Exception("server can not read or write to the file upload directory")
+        }
+
+        JSON.registerObjectMarshaller(Document) {document, json ->
+            document.encodeAsJSON()
+        }
 
         new User(
             username: "admin",
@@ -28,28 +48,30 @@ class BootStrap {
         def serviceTag = new Tag(name: "Service").save(failOnError: true)
         def marketingTag = new Tag(name: "Marketing").save(failOnError: true)
 
-        new FileBoxxFile(
+        driverTag.merge()
+
+        new Document(
                 name: "driver112.jar",
                 description: "MySQL Treiber V.1.1.2",
                 createdBy: uklawitter
             )
             .addToTags(driverTag).addToTags(mySqlTag).addToTags(webserviceTag)
             .save(failOnError: true)
-        new FileBoxxFile(
+        new Document(
                 name: "pressebild.jpg",
                 description: "Pressebild",
                 createdBy: uklawitter
             )
             .addToTags(marketingTag)
             .save(failOnError: true)
-        new FileBoxxFile(
+        new Document(
                 name: "mysql_browser_7.3.exe",
                 description: "MySQL Browserver V.7.3",
                 createdBy: uklawitter
             )
             .addToTags(mySqlTag).addToTags(webserviceTag)
             .save(failOnError: true)
-        new FileBoxxFile(
+        new Document(
                 name: "projektplan17.jpg",
                 description: "Projektplan #4708",
                 createdBy: uklawitter

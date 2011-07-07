@@ -16,7 +16,7 @@ Ext.define("de.rotex.fileboxx.view.tag.TagCloudView", {
 
     prepareData: function(data) {
         data.fontSize = 0.5 +
-            3 * (data.fileCount / this.store.countFiles());
+            3 * (data.documentCount / this.store.countDocuments());
         return data;
     },
 

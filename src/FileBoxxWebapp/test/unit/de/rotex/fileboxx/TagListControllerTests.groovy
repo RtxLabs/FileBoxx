@@ -1,7 +1,7 @@
 package de.rotex.fileboxx
 
 import grails.converters.JSON
-import grails.test.*
+import grails.test.ControllerUnitTestCase
 
 class TagListControllerTests extends ControllerUnitTestCase {
     protected void setUp() {

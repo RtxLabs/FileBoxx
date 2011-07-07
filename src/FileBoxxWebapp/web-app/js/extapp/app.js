@@ -4,16 +4,15 @@ Ext.application({
     name: 'de.rotex.fileboxx',
 
     controllers: [
-        "FileBoxxFileController",
+        "DocumentController",
         "HeaderController",
-        "TagCloudController",
-        "TagController",
-        "TagListController"
+        "TagController"
     ],
 
     appFolder: 'js/extapp',
 
     launch: function() {
+        //alert("muh");
         Ext.create('Ext.container.Viewport', {
             layout: 'border',
             items: [{
@@ -28,7 +27,7 @@ Ext.application({
             }, {
                 title: "Dateien",
                 region: "center",
-                xtype: "fileboxxfiles",
+                xtype: "documents",
                 layout: "fit"
             }]
         });

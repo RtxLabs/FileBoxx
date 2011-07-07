@@ -1,6 +1,6 @@
 package de.rotex.fileboxx
 
-import grails.test.*
+import grails.test.ControllerUnitTestCase
 
 class TagControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
